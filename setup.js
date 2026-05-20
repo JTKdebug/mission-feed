@@ -13,7 +13,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-async function resolveChannelId(handle) {
+export async function resolveChannelId(handle) {
   const url = `https://www.youtube.com/@${handle}`;
   const res = await fetch(url, {
     headers: {
