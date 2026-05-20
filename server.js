@@ -13,7 +13,7 @@ import { fileURLToPath } from 'url';
 import { fetchAllVideos } from './fetcher.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const CACHE_PATH = path.join(__dirname, 'cache.json');
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
