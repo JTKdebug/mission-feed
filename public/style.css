@@ -2,21 +2,22 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:         #0f0f0f;
-  --surface:    #1a1a1a;
-  --surface2:   #242424;
-  --border:     #2e2e2e;
-  --accent:     #ff4444;
-  --accent2:    #3b82f6;
-  --text:       #f0f0f0;
-  --text-muted: #888;
-  --radius:     10px;
+  --brand-orange:  #F97316;
+  --brand-teal:    #2DD4BF;
+  --brand-blue:    #2563EB;
+  --bg-page:       #0a0908;
+  --bg-card:       #161412;
+  --bg-card-hover: #1e1a17;
+  --border:        #2a2520;
+  --text-primary:  #f0f0f0;
+  --text-secondary:#a0998f;
+  --radius:        10px;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   min-height: 100vh;
@@ -33,7 +34,7 @@ header {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: var(--bg);
+  background: var(--bg-page);
   z-index: 10;
 }
 
@@ -43,25 +44,26 @@ h1 {
   font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.5px;
-  color: var(--text);
+  color: var(--brand-orange);
 }
 
 .updated {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .btn-refresh {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
+  background: var(--brand-orange);
+  border: none;
+  color: #fff;
   padding: 7px 14px;
   border-radius: 6px;
   font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: opacity 0.15s;
 }
-.btn-refresh:hover { color: var(--text); border-color: #555; }
+.btn-refresh:hover { opacity: 0.85; }
 
 /* ─── Filter chips ──────────────────────────────────────────────────────────── */
 .filters {
@@ -72,10 +74,27 @@ h1 {
   border-bottom: 1px solid var(--border);
 }
 
+/* ─── Mission banner ────────────────────────────────────────────────────────── */
+.mission-banner {
+  border-left: 3px solid var(--brand-teal);
+  background: var(--bg-card);
+  padding: 10px 24px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mission-banner strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
 .chip {
-  background: var(--surface);
+  background: var(--bg-card);
   border: 1px solid var(--border);
-  color: var(--text-muted);
+  color: var(--text-secondary);
   padding: 5px 12px;
   border-radius: 20px;
   font-size: 12px;
@@ -83,10 +102,10 @@ h1 {
   transition: all 0.15s;
   white-space: nowrap;
 }
-.chip:hover { color: var(--text); border-color: #555; }
+.chip:hover { color: var(--text-primary); border-color: #555; }
 .chip-active {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--brand-orange);
+  border-color: var(--brand-orange);
   color: #fff;
   font-weight: 600;
 }
@@ -96,7 +115,7 @@ main { padding: 24px; }
 
 /* ─── Video card ────────────────────────────────────────────────────────────── */
 .card {
-  background: var(--surface);
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
@@ -107,14 +126,14 @@ main { padding: 24px; }
 }
 .card:hover {
   transform: translateY(-2px);
-  border-color: #444;
+  border-color: var(--brand-orange);
 }
 
 .thumb-wrap {
   position: relative;
   width: 100%;
   padding-top: 56.25%; /* 16:9 */
-  background: var(--surface2);
+  background: var(--bg-card-hover);
   overflow: hidden;
 }
 .thumb {
@@ -148,9 +167,9 @@ main { padding: 24px; }
 
 .badge {
   display: inline-block;
-  background: rgba(255, 68, 68, 0.15);
-  color: var(--accent);
-  border: 1px solid rgba(255, 68, 68, 0.25);
+  background: rgba(45, 212, 191, 0.12);
+  color: var(--brand-teal);
+  border: 1px solid rgba(45, 212, 191, 0.25);
   padding: 2px 8px;
   border-radius: 4px;
   font-size: 11px;
@@ -160,28 +179,18 @@ main { padding: 24px; }
   width: fit-content;
 }
 
-.badge-business {
-  background: rgba(59, 130, 246, 0.15);
-  color: var(--accent2);
-  border-color: rgba(59, 130, 246, 0.25);
-}
-
-.badge-podcast {
-  background: rgba(168, 85, 247, 0.15);
-  color: #a855f7;
-  border-color: rgba(168, 85, 247, 0.25);
-}
-
+.badge-business,
+.badge-podcast,
 .badge-car {
-  background: rgba(34, 197, 94, 0.15);
-  color: #22c55e;
-  border-color: rgba(34, 197, 94, 0.25);
+  background: rgba(45, 212, 191, 0.12);
+  color: var(--brand-teal);
+  border-color: rgba(45, 212, 191, 0.25);
 }
 
 .title {
   font-size: 14px;
   font-weight: 500;
-  color: var(--text);
+  color: var(--text-primary);
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -191,14 +200,14 @@ main { padding: 24px; }
 
 .date {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--brand-blue);
   margin-top: auto;
 }
 
 /* ─── Empty + footer ────────────────────────────────────────────────────────── */
 .empty {
   text-align: center;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   padding: 60px 20px;
 }
 
@@ -209,7 +218,7 @@ footer {
 }
 
 .footer-note {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-size: 12px;
 }
 
@@ -230,7 +239,7 @@ footer {
   gap: 10px;
   font-size: 16px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--brand-orange);
   margin-bottom: 14px;
   letter-spacing: -0.2px;
 }
@@ -252,7 +261,7 @@ footer {
   align-items: center;
   gap: 16px;
   margin: 8px 0 36px;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
