@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Dan Martell",
+    "handle": "DanMartell",
+    "category": "top",
+    "channelId": "UCA-mWX9CvCTVFWRMb9bKc9w"
+  },
+  {
+    "name": "Alex Hormozi",
+    "handle": "AlexHormozi",
+    "category": "top",
+    "channelId": "UCUyDOdBWhC1MCxEjC46d-zw"
+  },
+  {
+    "name": "Liam Ottley",
+    "handle": "LiamOttley",
+    "category": "top",
+    "channelId": "UCui4jxDaMb53Gdh-AZUTPAg"
+  },
+  {
+    "name": "Nate Herk",
+    "handle": "nateherk",
+    "category": "top",
+    "channelId": "UC2ojq-nuP8ceeHqiroeKhBA"
+  },
+  {
+    "name": "The School of Hard Knocks",
+    "handle": "theschoolofhardknocks",
+    "category": "business",
+    "channelId": "UCmtBqvOp6xHlecDO0Un9O4w"
+  },
+  {
+    "name": "Iman Gadzhi",
+    "handle": "ImanGadzhi",
+    "category": "business",
+    "channelId": "UCQ4FNww3XoNgqIlkBqEAVCg"
+  },
+  {
+    "name": "Simon Squibb",
+    "handle": "SimonSquibb",
+    "category": "business",
+    "channelId": "UCGznz4NfW5iymkvn1l40qyA"
+  },
+  {
+    "name": "Greg Isenberg",
+    "handle": "GregIsenberg",
+    "category": "business",
+    "channelId": "UCPjNBjflYl0-HQtUvOx0Ibw"
+  },
+  {
+    "name": "Starter Story",
+    "handle": "StarterStory",
+    "category": "business",
+    "channelId": "UChhw6DlKKTQ9mYSpTfXUYqA"
+  },
+  {
+    "name": "Diary of a CEO",
+    "handle": "thediaryofaceo",
+    "category": "podcast",
+    "channelId": "UCGq-a57w-aPwyi3pW7XLiHw"
+  },
+  {
+    "name": "School of Hard Knocks Podcast",
+    "handle": "TheSchoolofHardKnocksPodcast",
+    "category": "podcast",
+    "channelId": "UChPwGY5vg-p4a6UehR83wHQ"
+  },
+  {
+    "name": "Iced Coffee Hour",
+    "handle": "IcedCoffeeHour",
+    "category": "podcast",
+    "channelId": "UCMSYZVlQmyG8_2MkIKzg0kw"
+  },
+  {
+    "name": "Front Row Seat – Ken Coleman",
+    "handle": "FrontRowSeat",
+    "category": "podcast",
+    "channelId": "UC0tVfiyBpMOQLA3FAanPGJA"
+  },
+  {
+    "name": "Lewis Howes",
+    "handle": "LewisHowes",
+    "category": "podcast",
+    "channelId": "UCKsP3v2JeT2hWI_HzkxWiMA"
+  },
+  {
+    "name": "George J Saliba",
+    "handle": "georgejsaliba",
+    "category": "car",
+    "channelId": "UClFl5x5buwC3ZonUUnPZhNQ"
+  }
+]

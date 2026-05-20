@@ -1,0 +1,278 @@
+/* ─── Reset + base ──────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #0f0f0f;
+  --surface:    #1a1a1a;
+  --surface2:   #242424;
+  --border:     #2e2e2e;
+  --accent:     #ff4444;
+  --accent2:    #3b82f6;
+  --text:       #f0f0f0;
+  --text-muted: #888;
+  --radius:     10px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ─── Header ────────────────────────────────────────────────────────────────── */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+}
+
+.header-left { display: flex; align-items: baseline; gap: 12px; }
+
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+
+.updated {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.btn-refresh {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-refresh:hover { color: var(--text); border-color: #555; }
+
+/* ─── Filter chips ──────────────────────────────────────────────────────────── */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.chip:hover { color: var(--text); border-color: #555; }
+.chip-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ─── Main grid ─────────────────────────────────────────────────────────────── */
+main { padding: 24px; }
+
+/* ─── Video card ────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s, border-color 0.15s;
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-2px);
+  border-color: #444;
+}
+
+.thumb-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  background: var(--surface2);
+  overflow: hidden;
+}
+.thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.play-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: rgba(255,255,255,0.85);
+  opacity: 0;
+  background: rgba(0,0,0,0.35);
+  transition: opacity 0.15s;
+}
+.card:hover .play-icon { opacity: 1; }
+
+.card-body {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255, 68, 68, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(255, 68, 68, 0.25);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  width: fit-content;
+}
+
+.badge-business {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--accent2);
+  border-color: rgba(59, 130, 246, 0.25);
+}
+
+.badge-podcast {
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+  border-color: rgba(168, 85, 247, 0.25);
+}
+
+.badge-car {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  border-color: rgba(34, 197, 94, 0.25);
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.date {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+/* ─── Empty + footer ────────────────────────────────────────────────────────── */
+.empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 60px 20px;
+}
+
+footer {
+  padding: 16px 24px 32px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+
+.footer-note {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.errors {
+  color: #f59e0b;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+/* ─── Channel sections ──────────────────────────────────────────────────────── */
+.channel-section {
+  margin-bottom: 40px;
+}
+
+.channel-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: -0.2px;
+}
+
+.channel-header .badge {
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.channel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* ─── Car section divider ───────────────────────────────────────────────────── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 8px 0 36px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  header { padding: 14px 16px; }
+  h1 { font-size: 18px; }
+  .filters { padding: 12px 16px; }
+  main { padding: 16px; }
+  .grid { grid-template-columns: 1fr; }
+  .channel-grid { grid-template-columns: 1fr; }
+}
