@@ -3,90 +3,105 @@
     "name": "Dan Martell",
     "handle": "DanMartell",
     "category": "top",
-    "channelId": "UCA-mWX9CvCTVFWRMb9bKc9w"
+    "channelId": "UCA-mWX9CvCTVFWRMb9bKc9w",
+    "tags": ["saas", "software", "agency", "scale", "entrepreneur"]
   },
   {
     "name": "Alex Hormozi",
     "handle": "AlexHormozi",
     "category": "top",
-    "channelId": "UCUyDOdBWhC1MCxEjC46d-zw"
+    "channelId": "UCUyDOdBWhC1MCxEjC46d-zw",
+    "tags": ["sales", "offer", "business", "revenue", "scale", "gym"]
   },
   {
     "name": "Liam Ottley",
     "handle": "LiamOttley",
     "category": "top",
-    "channelId": "UCui4jxDaMb53Gdh-AZUTPAg"
+    "channelId": "UCui4jxDaMb53Gdh-AZUTPAg",
+    "tags": ["ai", "automation", "agency", "tools", "claude"]
   },
   {
     "name": "Nate Herk",
     "handle": "nateherk",
     "category": "top",
-    "channelId": "UC2ojq-nuP8ceeHqiroeKhBA"
+    "channelId": "UC2ojq-nuP8ceeHqiroeKhBA",
+    "tags": ["automation", "ai", "tools", "productivity", "make"]
   },
   {
     "name": "The School of Hard Knocks",
     "handle": "theschoolofhardknocks",
     "category": "business",
-    "channelId": "UCmtBqvOp6xHlecDO0Un9O4w"
+    "channelId": "UCmtBqvOp6xHlecDO0Un9O4w",
+    "tags": ["business", "entrepreneurship", "mindset", "hustle"]
   },
   {
     "name": "Iman Gadzhi",
     "handle": "ImanGadzhi",
     "category": "business",
-    "channelId": "UCQ4FNww3XoNgqIlkBqEAVCg"
+    "channelId": "UCQ4FNww3XoNgqIlkBqEAVCg",
+    "tags": ["agency", "smma", "marketing", "entrepreneurship"]
   },
   {
     "name": "Simon Squibb",
     "handle": "SimonSquibb",
     "category": "business",
-    "channelId": "UCGznz4NfW5iymkvn1l40qyA"
+    "channelId": "UCGznz4NfW5iymkvn1l40qyA",
+    "tags": ["entrepreneur", "startup", "investment", "purpose"]
   },
   {
     "name": "Greg Isenberg",
     "handle": "GregIsenberg",
     "category": "business",
-    "channelId": "UCPjNBjflYl0-HQtUvOx0Ibw"
+    "channelId": "UCPjNBjflYl0-HQtUvOx0Ibw",
+    "tags": ["startup", "saas", "software", "community", "product"]
   },
   {
     "name": "Starter Story",
     "handle": "StarterStory",
     "category": "business",
-    "channelId": "UChhw6DlKKTQ9mYSpTfXUYqA"
+    "channelId": "UChhw6DlKKTQ9mYSpTfXUYqA",
+    "tags": ["business", "startup", "revenue", "side-hustle", "case-study"]
   },
   {
     "name": "Diary of a CEO",
     "handle": "thediaryofaceo",
     "category": "podcast",
-    "channelId": "UCGq-a57w-aPwyi3pW7XLiHw"
+    "channelId": "UCGq-a57w-aPwyi3pW7XLiHw",
+    "tags": ["mindset", "leadership", "psychology", "success", "health"]
   },
   {
     "name": "School of Hard Knocks Podcast",
     "handle": "TheSchoolofHardKnocksPodcast",
     "category": "podcast",
-    "channelId": "UChPwGY5vg-p4a6UehR83wHQ"
+    "channelId": "UChPwGY5vg-p4a6UehR83wHQ",
+    "tags": ["mindset", "entrepreneurship", "hustle"]
   },
   {
     "name": "Iced Coffee Hour",
     "handle": "IcedCoffeeHour",
     "category": "podcast",
-    "channelId": "UCMSYZVlQmyG8_2MkIKzg0kw"
+    "channelId": "UCMSYZVlQmyG8_2MkIKzg0kw",
+    "tags": ["finance", "investing", "money", "entrepreneurship"]
   },
   {
     "name": "Front Row Seat – Ken Coleman",
     "handle": "FrontRowSeat",
     "category": "podcast",
-    "channelId": "UC0tVfiyBpMOQLA3FAanPGJA"
+    "channelId": "UC0tVfiyBpMOQLA3FAanPGJA",
+    "tags": ["business", "investing", "wealth"]
   },
   {
     "name": "Lewis Howes",
     "handle": "LewisHowes",
     "category": "podcast",
-    "channelId": "UCKsP3v2JeT2hWI_HzkxWiMA"
+    "channelId": "UCKsP3v2JeT2hWI_HzkxWiMA",
+    "tags": ["mindset", "health", "success", "relationships", "performance"]
   },
   {
     "name": "George J Saliba",
     "handle": "georgejsaliba",
     "category": "car",
-    "channelId": "UClFl5x5buwC3ZonUUnPZhNQ"
+    "channelId": "UClFl5x5buwC3ZonUUnPZhNQ",
+    "tags": ["car", "luxury", "lifestyle"]
   }
 ]
