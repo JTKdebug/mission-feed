@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Channel Display Name",
+    "handle": "YouTubeHandle",
+    "category": "top",
+    "channelId": null,
+    "tags": ["keyword1", "keyword2"]
+  },
+  {
+    "name": "Another Channel",
+    "handle": "AnotherHandle",
+    "category": "business",
+    "channelId": null,
+    "tags": ["keyword3", "keyword4"]
+  }
+]
