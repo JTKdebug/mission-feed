@@ -40,6 +40,12 @@ Don't want to run a terminal? Deploy to Railway in one click:
 
 Railway provisions a server, runs the setup wizard, and gives you a public URL. Free tier works fine.
 
+**To make your setup persist across deploys** (recommended), add a Railway volume:
+1. In your Railway service → **Volumes** → Add Volume → mount at `/data`
+2. Add an environment variable: `DATA_DIR=/data`
+
+Without this, your mission and channel selections reset if the container restarts.
+
 ---
 
 ## Adding Your Own Channels

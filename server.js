@@ -15,9 +15,11 @@ import { resolveChannelId } from './setup.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 3000;
-const CACHE_PATH    = path.join(__dirname, 'cache.json');
-const MISSION_PATH  = path.join(__dirname, 'mission.json');
-const CHANNELS_PATH = path.join(__dirname, 'channels.json');
+const DATA_DIR = process.env.DATA_DIR || __dirname;
+const CACHE_PATH    = path.join(DATA_DIR, 'cache.json');
+const MISSION_PATH  = path.join(DATA_DIR, 'mission.json');
+const CHANNELS_PATH = path.join(DATA_DIR, 'channels.json');
+const CHANNELS_DEFAULT = path.join(__dirname, 'channels.json');
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
 let cache = { channels: [], errors: [], fetchedAt: null };
@@ -32,11 +34,10 @@ async function loadMission() {
 }
 
 async function loadChannels() {
-  try {
-    return JSON.parse(await fs.readFile(CHANNELS_PATH, 'utf8'));
-  } catch {
-    return [];
+  for (const p of [CHANNELS_PATH, CHANNELS_DEFAULT]) {
+    try { return JSON.parse(await fs.readFile(p, 'utf8')); } catch {}
   }
+  return [];
 }
 
 // ─── Cache helpers ────────────────────────────────────────────────────────────
@@ -556,6 +557,7 @@ function buildSetupHTML(channels) {
 
 // ─── Startup ──────────────────────────────────────────────────────────────────
 
+await fs.mkdir(DATA_DIR, { recursive: true });
 await loadMission();
 await loadCache();
 
