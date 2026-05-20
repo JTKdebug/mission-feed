@@ -14,10 +14,21 @@ import { fetchAllVideos } from './fetcher.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 3000;
-const CACHE_PATH = path.join(__dirname, 'cache.json');
+const CACHE_PATH    = path.join(__dirname, 'cache.json');
+const MISSION_PATH  = path.join(__dirname, 'mission.json');
+const CHANNELS_PATH = path.join(__dirname, 'channels.json');
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
 let cache = { channels: [], errors: [], fetchedAt: null };
+let missionState = null;
+
+async function loadMission() {
+  try {
+    missionState = JSON.parse(await fs.readFile(MISSION_PATH, 'utf8'));
+  } catch {
+    missionState = null;
+  }
+}
 
 // ─── Cache helpers ────────────────────────────────────────────────────────────
 
@@ -165,6 +176,9 @@ function buildHTML(data, activeFilter) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Mission Feed</title>
   <link rel="stylesheet" href="/public/style.css">
 </head>
@@ -178,6 +192,13 @@ function buildHTML(data, activeFilter) {
       <a class="btn-refresh" href="/refresh">↻ Refresh</a>
     </div>
   </header>
+
+  ${missionState ? `
+  <div class="mission-banner">
+    <strong>${escapeHtml(missionState.name)}'s Feed</strong>
+    &nbsp;·&nbsp; Mission: ${escapeHtml(missionState.mission)}
+    &nbsp;·&nbsp; Goal: ${escapeHtml(missionState.goal)}
+  </div>` : ''}
 
   <div class="filters">
     <a class="chip ${activeFilter === 'all' ? 'chip-active' : ''}" href="/">All</a>
@@ -206,6 +227,7 @@ function escapeHtml(str) {
 
 // ─── Startup ──────────────────────────────────────────────────────────────────
 
+await loadMission();
 await loadCache();
 
 if (isCacheStale()) {
