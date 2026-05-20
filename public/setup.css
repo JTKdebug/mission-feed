@@ -1,0 +1,279 @@
+/* ─── Setup wizard layout ───────────────────────────────────────────────────── */
+.setup-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+  min-height: 100vh;
+}
+
+/* ─── Progress bar ──────────────────────────────────────────────────────────── */
+.setup-progress-track {
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.setup-progress-fill {
+  height: 100%;
+  background: var(--brand-orange);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.step-dots {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.2s;
+}
+
+.step-dot.active { background: var(--brand-orange); }
+.step-dot.done   { background: var(--brand-teal); }
+
+/* ─── Step panels ───────────────────────────────────────────────────────────── */
+.setup-step { display: none; }
+.setup-step.active { display: block; }
+
+/* ─── Step 1: Welcome ───────────────────────────────────────────────────────── */
+.setup-logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--brand-orange);
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+}
+
+.setup-tagline {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* ─── Form elements ─────────────────────────────────────────────────────────── */
+.setup-step h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 28px;
+  line-height: 1.3;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  padding: 10px 14px;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--brand-orange);
+}
+
+/* ─── Buttons ───────────────────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--brand-orange);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  margin-top: 12px;
+}
+
+.btn-primary:hover { opacity: 0.85; }
+
+/* ─── Category cards ────────────────────────────────────────────────────────── */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.category-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  user-select: none;
+}
+
+.category-card:hover {
+  border-color: var(--brand-orange);
+}
+
+.category-card.selected {
+  border-color: var(--brand-orange);
+  background: rgba(249, 115, 22, 0.08);
+}
+
+.category-card span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* ─── Draggable channel cards ───────────────────────────────────────────────── */
+.channels-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.channel-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  cursor: default;
+  transition: border-color 0.15s;
+  user-select: none;
+}
+
+.channel-card.drag-over { border-color: var(--brand-teal); }
+.channel-card.dragging  { opacity: 0.4; }
+
+.drag-handle {
+  color: var(--text-secondary);
+  cursor: grab;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.channel-card-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.suggested-badge {
+  font-size: 11px;
+  color: var(--brand-teal);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-weight: 600;
+}
+
+.channel-card-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.channel-card-toggle:hover { border-color: var(--brand-orange); color: var(--brand-orange); }
+.channel-card-toggle.excluded { color: var(--text-secondary); opacity: 0.5; }
+
+/* ─── Custom channel input ──────────────────────────────────────────────────── */
+.add-channel-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.add-channel-row input {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.add-channel-row input:focus { border-color: var(--brand-orange); }
+
+.btn-add {
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s;
+}
+
+.btn-add:hover { border-color: var(--brand-orange); }
+
+/* ─── Summary card ──────────────────────────────────────────────────────────── */
+.summary-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+}
+
+.summary-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.summary-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.summary-value {
+  color: var(--text-primary);
+}
