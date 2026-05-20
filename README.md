@@ -10,7 +10,7 @@ A self-hosted YouTube dashboard that shows your curated channels — no algorith
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/<YOUR_GITHUB_USERNAME>/mission-feed
+   git clone https://github.com/JTKdebug/mission-feed
    cd mission-feed
    ```
 
@@ -36,7 +36,7 @@ No API keys. No database. No accounts. Just YouTube RSS feeds.
 
 Don't want to run a terminal? Deploy to Railway in one click:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/<YOUR_GITHUB_USERNAME>/mission-feed)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/JTKdebug/mission-feed)
 
 Railway provisions a server, runs the setup wizard, and gives you a public URL. Free tier works fine.
 
