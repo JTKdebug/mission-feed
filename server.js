@@ -11,6 +11,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { fetchAllVideos } from './fetcher.js';
+import { resolveChannelId } from './setup.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 3000;
@@ -78,6 +79,7 @@ async function refreshCache() {
 
 const app = express();
 app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 
 app.get('/', (req, res) => {
   if (!missionState) return res.redirect('/setup');
@@ -94,6 +96,29 @@ app.get('/refresh', async (req, res) => {
 app.get('/setup', async (req, res) => {
   const channels = await loadChannels();
   res.send(buildSetupHTML(channels));
+});
+
+app.post('/save-setup', async (req, res) => {
+  const { name, mission, goal, channels } = req.body;
+
+  const newMission = { name, mission, goal, createdAt: new Date().toISOString() };
+  await fs.writeFile(MISSION_PATH, JSON.stringify(newMission, null, 2));
+  missionState = newMission;
+
+  const resolved = await Promise.all(channels.map(async ch => {
+    if (ch.channelId) return ch;
+    try {
+      const id = await resolveChannelId(ch.handle);
+      return { ...ch, channelId: id };
+    } catch {
+      return { ...ch, channelId: null, error: `Could not resolve @${ch.handle}` };
+    }
+  }));
+
+  await fs.writeFile(CHANNELS_PATH, JSON.stringify(resolved, null, 2));
+
+  refreshCache();
+  res.redirect('/');
 });
 
 // ─── HTML builder ─────────────────────────────────────────────────────────────
